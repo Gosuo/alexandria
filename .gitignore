@@ -202,3 +202,5 @@ tags
 
 # End of https://www.toptal.com/developers/gitignore/api/rust,rust-analyzer,vim,visualstudiocode,emacs,clion+all
 
+# Ignore local env files developers might use for local testing
+.env
