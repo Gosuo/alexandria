@@ -1,6 +1,3 @@
-# Created by https://www.toptal.com/developers/gitignore/api/rust,rust-analyzer,vim,visualstudiocode,emacs,clion+all
-# Edit at https://www.toptal.com/developers/gitignore?templates=rust,rust-analyzer,vim,visualstudiocode,emacs,clion+all
-
 ### CLion+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -199,8 +196,6 @@ tags
 # Ignore all local history of files
 .history
 .ionide
-
-# End of https://www.toptal.com/developers/gitignore/api/rust,rust-analyzer,vim,visualstudiocode,emacs,clion+all
 
 # Ignore local env files developers might use for local testing
 .env
