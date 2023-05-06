@@ -12,4 +12,4 @@ members = [
 ]
 
 [dependencies]
-alexandria = { path = "./crates/alexandria/" }
+alexandria = { path = "crates/alexandria/" }

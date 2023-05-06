@@ -1,5 +1,5 @@
 [package]
-name = "alexandria"
+name = "dlp"
 version = "0.1.0"
 edition = "2021"
 
@@ -8,4 +8,4 @@ edition = "2021"
 [dependencies]
 
 [lib]
-doctest = false
+doctest = false # remove this down the line
