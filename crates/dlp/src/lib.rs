@@ -9,7 +9,9 @@ pub struct YtDlp {
 
 impl Default for YtDlp {
     fn default() -> Self {
-        Self { cmd: Command::new("yt-dlp") }
+        Self {
+            cmd: Command::new("yt-dlp"),
+        }
     }
 }
 
