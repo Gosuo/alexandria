@@ -6,5 +6,5 @@ fn main() {
         .query("https://www.youtube.com/watch?v=jNQXAC9IVRw")
         .unwrap();
 
-    println!("Query:\n{:?}", query);
+    println!("Query:\n{:#?}", query);
 }
