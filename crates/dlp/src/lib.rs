@@ -1,9 +1,9 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 
-use std::io::Result as IoResult;
 use std::io::Error as IoError;
 use std::io::ErrorKind as IoErrorKind;
+use std::io::Result as IoResult;
 use std::path::Path;
 use std::process::Command;
 
@@ -15,7 +15,10 @@ mod model;
 pub fn simple_download(url: &str, path: &Path) -> IoResult<()> {
     let mut cmd = Command::new("yt-dlp");
     cmd.arg("--output");
-    cmd.arg(&format!("{}/%(title)s [%(resolution)s] [%(id)s].%(ext)s", path.to_str().unwrap()));
+    cmd.arg(&format!(
+        "{}/%(title)s [%(resolution)s] [%(id)s].%(ext)s",
+        path.to_str().unwrap()
+    ));
     cmd.arg("-f bestvideo+bestaudio");
     cmd.arg(url);
 
@@ -25,7 +28,10 @@ pub fn simple_download(url: &str, path: &Path) -> IoResult<()> {
 
     match result.status.code() {
         Some(0) => Ok(()),
-        Some(code) => Err(IoError::new(IoErrorKind::Other, format!("Error code: {code}"))),
+        Some(code) => Err(IoError::new(
+            IoErrorKind::Other,
+            format!("Error code: {code}"),
+        )),
         None => Err(IoError::new(IoErrorKind::Other, "No return code!")),
     }
 }
