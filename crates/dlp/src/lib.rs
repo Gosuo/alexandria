@@ -2,12 +2,33 @@
 #![allow(unused_variables)]
 
 use std::io::Result as IoResult;
+use std::io::Error as IoError;
+use std::io::ErrorKind as IoErrorKind;
+use std::path::Path;
 use std::process::Command;
 
 use model::JsonOutput;
 use serde_json::Value;
 
 mod model;
+
+pub fn simple_download(url: &str, path: &Path) -> IoResult<()> {
+    let mut cmd = Command::new("yt-dlp");
+    cmd.arg("--output");
+    cmd.arg(&format!("{}/%(title)s [%(resolution)s] [%(id)s].%(ext)s", path.to_str().unwrap()));
+    cmd.arg("-f bestvideo+bestaudio");
+    cmd.arg(url);
+
+    println!("Command: {:?}", cmd);
+
+    let result = cmd.output()?;
+
+    match result.status.code() {
+        Some(0) => Ok(()),
+        Some(code) => Err(IoError::new(IoErrorKind::Other, format!("Error code: {code}"))),
+        None => Err(IoError::new(IoErrorKind::Other, "No return code!")),
+    }
+}
 
 pub struct YoutubeQuery {
     cmd: Command,
